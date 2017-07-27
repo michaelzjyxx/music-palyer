@@ -1,9 +1,11 @@
 export const commonParams = {
   g_tk: 5381,
-  inCharset: 'utf-8',
-  outCharset: '',
+  inCharset: 'utf8',
   notice: 0,
-  format: 'jsonp'
+  loginUin: 0,
+  hostUin: 0,
+  platform: 'yqq',
+  needNewCode: 0
 }
 
 export const options = {
@@ -11,3 +13,4 @@ export const options = {
 }
 
 export const ERR_OK = 0
+
