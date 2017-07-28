@@ -9,9 +9,11 @@
     <ul>
       <li v-for="group in data" class="list-group" ref="listgroup">
         <h2 class="list-title">{{group.title}}</h2>
-        <ul v-for="item in group.items" class="list-item">
-          <img v-lazy="item.avatar" class="avatar"/>
-          <span class="name">{{item.name}}</span>
+        <ul>
+          <li @click="selectItem(item)" v-for="item in group.items" class="list-item">
+            <img v-lazy="item.avatar" class="avatar"/>
+            <span class="name">{{item.name}}</span>
+          </li>
         </ul>
       </li>
     </ul>
@@ -33,7 +35,7 @@
     <div class="fixedList" v-show="fixTitle" ref="fixe">
       <h1 class="fixedTitle">{{fixTitle}}</h1>
     </div>
-    <div class="loadingcontainer" v-show="false">
+    <div class="loadingcontainer" v-show="!data.length">
       <v-loading></v-loading>
     </div>
   </v-scroll>
@@ -67,6 +69,9 @@
       }
     },
     methods: {
+      selectItem (item) {
+        this.$emit('select', item)
+      },
       shortcutonTouch (e) {
         let anchorIndex = getData(e.target, 'index')
         let firstTouch = e.touches[0]
@@ -90,7 +95,7 @@
         this.scrollY = pos.y
       },
       scrollTo (Index) {
-        if (!Index && Index < 0) {
+        if (!Index && Index !== 0) {
           return
         }
         if (Index < 0) {

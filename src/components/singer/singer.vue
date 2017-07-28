@@ -1,6 +1,7 @@
 <template>
   <div class="singer">
-    <v-list :data="singerList"></v-list>
+    <v-list @select="selectSinger" :data="singerList"></v-list>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -9,6 +10,7 @@
   import { ERR_OK } from '../../api/config'
   import Singer from '../../common/js/singer'
   import VList from '../../base/listview/list.vue'
+  import { mapMutations } from 'vuex'
 
   const HOT_NAME = '热门'
   const HOT_NUM = 10
@@ -71,7 +73,16 @@
           })
         }
         return hot.concat(ret)
-      }
+      },
+      selectSinger (singerList) {
+        this.$router.push({
+          path: `/singer/${singerList.id}`
+        })
+        this.setSinger(singerList)
+      },
+      ...mapMutations({
+        setSinger: 'SET_SINGER'
+      })
     },
     components: {
       VList
