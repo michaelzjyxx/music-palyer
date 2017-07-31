@@ -49,7 +49,6 @@
         if (this.autoPlay) {
           this.play()
         }
-        console.log()
       }, 20)
       window.addEventListener('resize', () => {
         if (!this.slider) {
@@ -87,7 +86,6 @@
           width += 2 * sliderWidth
         }
         this.$refs.sliderGroup.style.width = width + 'px'
-        console.log(width)
       },
 
       initdots () {
@@ -98,7 +96,6 @@
 //        if (!this.$refs.slider) {
 //          return
 //        }
-        console.log(this.$refs.slider)
         this.slider = new BScroll(this.$refs.slider, {
           scrollX: true,
           scrollY: false,
@@ -109,7 +106,6 @@
           snapSpeed: 400,
           click: true
         })
-        console.log(this.slider.pages.length)
         if (!this.slider.pages.length) {
         }
         this.slider.on('scrollEnd', () => {

@@ -38,6 +38,7 @@
         getSingerDetail(id).then((res) => {
           if (res.code === ERR_OK) {
             this.songs = this._normalizeSongDetail(res.data.list)
+            console.log(res.data.list)
           }
         })
       },
@@ -45,6 +46,7 @@
         let ret = []
         list.forEach((item) => {
           let {musicData} = item
+//          console.log(item)
           if (musicData.songid && musicData.albumid) {
             ret.push(createSong(musicData))
           }
@@ -54,7 +56,6 @@
     },
     created () {
       this._getSingerDetail(this.singer.id)
-      console.log(this.songs)
     },
     components: {
       VSlist

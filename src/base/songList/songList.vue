@@ -36,7 +36,6 @@
     align-items: center
     box-sizing: border-box
     height: 64px
-    margin-left: 20px
     .content
       flex: 1
       line-height: 20px
@@ -47,7 +46,7 @@
         no-wrap()
       .desc
         margin-top: 4px
-        color: #323232
+        color: #727272
         font-size: $font-size-small
         no-wrap()
 </style>

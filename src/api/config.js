@@ -12,5 +12,15 @@ export const options = {
   param: 'jsonpCallback'
 }
 
+export const options1 = {
+  param: 'jsonpCallback',
+  prefix: 'playlistinfoCallback'
+}
+
+export const options2 = {
+  param: 'jsonCallback',
+  prefix: 'jsonCallback'
+}
+
 export const ERR_OK = 0
 

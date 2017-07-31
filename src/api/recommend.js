@@ -4,13 +4,13 @@ import axios from 'axios'
 
 export function getRecommend () {
   const url = 'https://c.y.qq.com/v8/fcg-bin/fcg_first_yqq.fcg'
-  // const url = ''
   const data = Object.assign({}, commonParams, {
     tpl: 'v12',
     page: 'other',
     format: 'jsonp',
     outCharset: 'GB2312'
   })
+  console.log(jsonp(url, data, options))
   return jsonp(url, data, options)
 }
 

@@ -14,7 +14,7 @@
         <div class="recommend-list">
           <h1 class="list-title">热门推荐</h1>
           <ul>
-            <li v-for="item in songList" class="item">
+            <li @click="selectDiss(item)" v-for="item in songList" class="item">
               <div class="icon">
                 <img v-lazy="item.imgurl" width="60" height="60"/>
               </div>
@@ -30,6 +30,7 @@
         <v-loading></v-loading>
       </div>
     </v-scroll>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -39,6 +40,7 @@
   import VSlider from '../../base/slider/slider.vue'
   import VScroll from '../../base/scroll/scroll.vue'
   import VLoading from '../../base/loading/loading.vue'
+  import { mapMutations } from 'vuex'
 
   export default {
     name: 'v-recommend',
@@ -73,6 +75,15 @@
           }
         })
       },
+      selectDiss (songList) {
+        this.$router.push({
+          path: `/recommend/${songList.dissid}`
+        })
+        this.setDiss(songList)
+      },
+      ...mapMutations({
+        setDiss: 'SET_DISS'
+      }),
       imageLoad () {
         if (!this.refreshed) {
           this.$refs.scroll.refresh()
@@ -130,5 +141,6 @@
         position: absolute
         top: 50%
         width: 100%
+
   //transform: translateY(-50%)
 </style>

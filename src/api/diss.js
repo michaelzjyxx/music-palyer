@@ -1,18 +1,17 @@
 import jsonp from '../common/js/jsonp'
-import { commonParams, options } from './config'
+import { commonParams, options1 } from './config'
 
-export function getSingerList () {
-  const url = 'https://c.y.qq.com/v8/fcg-bin/v8.fcg'
-  // const url = ''
+export function getDissDetail (id) {
+  const url = 'https://c.y.qq.com/qzone/fcg-bin/fcg_ucc_getcdinfo_byids_cp.fcg'
   const data = Object.assign({}, commonParams, {
-    tpl: 'v12',
-    page: 'list',
+    type: 1,
+    json: 1,
+    utf8: 1,
+    onlysong: 0,
+    disstid: Number(id),
     format: 'jsonp',
     outCharset: 'utf-8',
-    channel: 'singer',
-    key: 'all_all_all',
-    pagesize: 100,
-    pagenum: 1
+    notice: 0
   })
-  return jsonp(url, data, options)
+  return jsonp(url, data, options1)
 }
