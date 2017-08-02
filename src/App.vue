@@ -25,4 +25,5 @@
   @import "./common/stylus/variable.styl"
   #ap
     background-color: $color-background
+    color: #000
 </style>

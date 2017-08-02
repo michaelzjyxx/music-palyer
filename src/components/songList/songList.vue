@@ -77,6 +77,7 @@
       this.minHeight = -this.imageHeight + BAR_HEIGHT
       this.$refs.list.$el.style.top = `${this.$refs.bgimg.clientHeight}px`
     },
+  
     components: {
       Vscroll,
       VSlist,
